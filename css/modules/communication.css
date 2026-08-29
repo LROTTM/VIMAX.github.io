@@ -1,0 +1,245 @@
+            /* CHAT */
+            .chlayout {
+                display: flex;
+                height: calc(100vh - 56px)
+            }
+
+            .chl {
+                width: 260px;
+                border-right: 1px solid var(--bdr);
+                display: flex;
+                flex-direction: column;
+                flex-shrink: 0
+            }
+
+            .chls {
+                padding: 11px;
+                border-bottom: 1px solid var(--bdr)
+            }
+
+            .chls input {
+                width: 100%;
+                background: var(--bg0);
+                border: 1px solid var(--bdr);
+                color: var(--tx1);
+                padding: 7px 10px;
+                border-radius: 7px;
+                font-size: 13px
+            }
+
+            .chls input::placeholder {
+                color: var(--tx3)
+            }
+
+            .chl-list {
+                flex: 1;
+                overflow-y: auto
+            }
+
+            .chi {
+                display: flex;
+                align-items: center;
+                gap: 9px;
+                padding: 11px 12px;
+                cursor: pointer;
+                border-bottom: 1px solid var(--bdr);
+                transition: .12s
+            }
+
+            .chi:hover,
+            .chi.on {
+                background: var(--bg3)
+            }
+
+            .chi-info {
+                flex: 1;
+                min-width: 0
+            }
+
+            .chi-name {
+                font-size: 13px;
+                font-weight: 500
+            }
+
+            .chi-prev {
+                font-size: 12px;
+                color: var(--tx3);
+                white-space: nowrap;
+                overflow: hidden;
+                text-overflow: ellipsis
+            }
+
+            .chi-meta {
+                text-align: right;
+                flex-shrink: 0
+            }
+
+            .chi-time {
+                font-size: 11px;
+                color: var(--tx3)
+            }
+
+            .chi-unread {
+                width: 17px;
+                height: 17px;
+                background: var(--acc);
+                border-radius: 50%;
+                font-size: 10px;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                margin-top: 4px;
+                margin-left: auto;
+                font-weight: 600
+            }
+
+            .chm {
+                flex: 1;
+                display: flex;
+                flex-direction: column;
+                min-width: 0
+            }
+
+            .chmtop {
+                padding: 11px 14px;
+                border-bottom: 1px solid var(--bdr);
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-shrink: 0
+            }
+
+            .msgs {
+                flex: 1;
+                padding: 14px;
+                overflow-y: auto;
+                display: flex;
+                flex-direction: column;
+                gap: 10px
+            }
+
+            .msg {
+                max-width: 72%;
+                padding: 9px 13px;
+                border-radius: 11px;
+                font-size: 13px;
+                line-height: 1.5
+            }
+
+            .msg-in {
+                background: var(--bg3);
+                border-bottom-left-radius: 3px;
+                align-self: flex-start
+            }
+
+            .msg-out {
+                background: var(--acc);
+                color: #fff;
+                border-bottom-right-radius: 3px;
+                align-self: flex-end
+            }
+
+            .msg-t {
+                font-size: 10px;
+                color: var(--tx3);
+                margin-top: 3px
+            }
+
+            .msg-t-out {
+                color: rgba(255, 255, 255, .5)
+            }
+
+            .chinput {
+                padding: 11px 14px;
+                border-top: 1px solid var(--bdr);
+                display: flex;
+                align-items: center;
+                gap: 7px;
+                flex-shrink: 0
+            }
+
+            .chinput input {
+                flex: 1;
+                background: var(--bg3);
+                border: 1px solid var(--bdr);
+                color: var(--tx1);
+                padding: 8px 12px;
+                border-radius: 7px;
+                font-size: 13px
+            }
+
+            .chinput input:focus {
+                border-color: var(--acc);
+                outline: none
+            }
+
+            .chinput input::placeholder {
+                color: var(--tx3)
+            }
+
+            /* NOTIFICATIONS */
+            .notif {
+                display: flex;
+                align-items: flex-start;
+                gap: 9px;
+                padding: 11px 14px;
+                border-bottom: 1px solid var(--bdr);
+                cursor: pointer;
+                transition: .12s
+            }
+
+            .notif:hover {
+                background: var(--bg3)
+            }
+
+            .ndot {
+                width: 8px;
+                height: 8px;
+                border-radius: 50%;
+                background: var(--acc);
+                margin-top: 4px;
+                flex-shrink: 0
+            }
+
+            .ndot.r {
+                background: transparent;
+                border: 1px solid var(--tx3)
+            }
+
+            /* TICKET CARD */
+            .tcard {
+                background: var(--bg2);
+                border: 1px solid var(--bdr);
+                border-radius: 9px;
+                padding: 14px;
+                margin-bottom: 9px;
+                cursor: pointer;
+                transition: .12s
+            }
+
+            .tcard:hover {
+                border-color: var(--bdr2)
+            }
+
+            .thead2 {
+                display: flex;
+                align-items: center;
+                justify-content: space-between;
+                margin-bottom: 7px
+            }
+
+            .ttitle {
+                font-size: 13px;
+                font-weight: 500;
+                margin-bottom: 5px
+            }
+
+            .tmeta {
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                font-size: 11px;
+                color: var(--tx3);
+                flex-wrap: wrap
+            }
+

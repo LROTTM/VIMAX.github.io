@@ -1,0 +1,108 @@
+            /* PROFILE */
+            .prof-hero {
+                background: var(--bg2);
+                border: 1px solid var(--bdr);
+                border-radius: 11px;
+                padding: 22px;
+                margin-bottom: 14px;
+                display: flex;
+                align-items: flex-start;
+                gap: 18px;
+                flex-wrap: wrap
+            }
+
+            .prof-big {
+                width: 72px;
+                height: 72px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 24px;
+                font-weight: 700;
+                flex-shrink: 0
+            }
+
+            .pbadges {
+                display: flex;
+                gap: 6px;
+                flex-wrap: wrap;
+                margin-top: 9px
+            }
+
+            /* MAP */
+            #map-container {
+                width: 100%;
+                height: 380px;
+                border-radius: 11px;
+                overflow: hidden;
+                border: 1px solid var(--bdr)
+            }
+
+            /* CHART CONTAINER */
+            .chart-wrap {
+                position: relative;
+                height: 180px
+            }
+
+            /* STATUS */
+            .sta {
+                display: inline-flex;
+                align-items: center;
+                gap: 4px;
+                font-size: 11px
+            }
+
+            .sta::before {
+                content: '';
+                width: 6px;
+                height: 6px;
+                border-radius: 50%;
+                flex-shrink: 0
+            }
+
+            .sta-on::before {
+                background: var(--ok)
+            }
+
+            .sta-busy::before {
+                background: var(--warn)
+            }
+
+            .sta-off::before {
+                background: var(--tx3)
+            }
+
+            /* BARS */
+            .bar-chart {
+                display: flex;
+                align-items: flex-end;
+                gap: 4px;
+                height: 70px
+            }
+
+            .bar {
+                flex: 1;
+                background: var(--acc);
+                border-radius: 3px 3px 0 0;
+                opacity: .75;
+                transition: .15s;
+                min-height: 4px
+            }
+
+            .bar:hover {
+                opacity: 1
+            }
+
+            .bar-labels {
+                display: flex;
+                gap: 4px
+            }
+
+            .bar-label {
+                flex: 1;
+                text-align: center;
+                font-size: 10px;
+                color: var(--tx3)
+            }
+

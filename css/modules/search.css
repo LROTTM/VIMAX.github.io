@@ -1,0 +1,168 @@
+            /* SEARCH BAR */
+            .sbar {
+                background: var(--bg2);
+                border: 1px solid var(--bdr);
+                border-radius: 10px;
+                padding: 14px 16px;
+                margin-bottom: 16px;
+                display: flex;
+                align-items: center;
+                gap: 10px;
+                flex-wrap: wrap
+            }
+
+            .sbar input,
+            .sbar select {
+                background: var(--bg0);
+                border: 1px solid var(--bdr);
+                color: var(--tx1);
+                padding: 8px 12px;
+                border-radius: 7px;
+                font-size: 13px
+            }
+
+            .sbar input:focus,
+            .sbar select:focus {
+                border-color: var(--acc);
+                outline: none
+            }
+
+            .sbar input {
+                flex: 1;
+                min-width: 160px
+            }
+
+            .sbar input::placeholder {
+                color: var(--tx3)
+            }
+
+            .srel {
+                position: relative;
+                flex: 1;
+                min-width: 160px
+            }
+
+            .srel i {
+                position: absolute;
+                left: 10px;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--tx3);
+                font-size: 15px
+            }
+
+            .srel input {
+                padding-left: 32px;
+                width: 100%
+            }
+
+            .chips {
+                display: flex;
+                gap: 5px;
+                flex-wrap: wrap;
+                margin-bottom: 14px
+            }
+
+            .chip {
+                padding: 5px 11px;
+                border-radius: 20px;
+                border: 1px solid var(--bdr);
+                background: none;
+                color: var(--tx2);
+                font-size: 12px;
+                cursor: pointer;
+                transition: .12s
+            }
+
+            .chip:hover,
+            .chip.on {
+                border-color: var(--acc);
+                color: var(--acc3);
+                background: rgba(37, 99, 235, .08)
+            }
+
+            /* MECHANIC CARDS */
+            .mgrid {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+                gap: 14px
+            }
+
+            .mcard {
+                background: var(--bg2);
+                border: 1px solid var(--bdr);
+                border-radius: 11px;
+                overflow: hidden;
+                cursor: pointer;
+                transition: .2s
+            }
+
+            .mcard:hover {
+                border-color: var(--acc3);
+                transform: translateY(-2px)
+            }
+
+            .mch {
+                padding: 16px;
+                background: var(--bg3);
+                border-bottom: 1px solid var(--bdr);
+                display: flex;
+                gap: 11px;
+                align-items: flex-start;
+                position: relative
+            }
+
+            .mav {
+                width: 48px;
+                height: 48px;
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 16px;
+                font-weight: 700;
+                flex-shrink: 0
+            }
+
+            .odot {
+                width: 10px;
+                height: 10px;
+                border-radius: 50%;
+                border: 2px solid var(--bg3);
+                position: absolute;
+                top: 18px;
+                left: 52px
+            }
+
+            .mcb {
+                padding: 14px
+            }
+
+            .mtags {
+                display: flex;
+                flex-wrap: wrap;
+                gap: 4px;
+                margin-bottom: 10px
+            }
+
+            .mtag {
+                font-size: 11px;
+                padding: 2px 7px;
+                background: rgba(37, 99, 235, .1);
+                border: 1px solid rgba(37, 99, 235, .2);
+                color: var(--acc3);
+                border-radius: 10px
+            }
+
+            .mft {
+                display: flex;
+                align-items: center;
+                justify-content: space-between
+            }
+
+            .mprice {
+                font-size: 15px;
+                font-weight: 700;
+                color: var(--ok)
+            }
+
