@@ -1,0 +1,35 @@
+<div id="page-admin" class="split-page">
+                <div class="sidebar">
+                    <div style="padding:8px 6px 14px">
+                        <div style="font-size:11px;font-weight:700;color:var(--err)">⚡ PANEL ADMIN</div>
+                        <div style="font-size:11px;color:var(--tx3)" id="admin-role-lbl">Super Administrador</div>
+                    </div>
+                    <div class="sbl">Sistema</div>
+                    <button class="si on" id="asi-overview" onclick="setAdminSection('overview')"><i
+                            class="ti ti-dashboard"></i> Panel General</button>
+                    <button class="si" id="asi-users" onclick="setAdminSection('users')"><i class="ti ti-users"></i>
+                        Usuarios</button>
+                    <button class="si" id="asi-mechanics" onclick="setAdminSection('mechanics')"><i
+                            class="ti ti-tools"></i> Mecánicos</button>
+                    <button class="si" id="asi-admins" onclick="setAdminSection('admins')"><i class="ti ti-shield"></i>
+                        Administradores</button>
+                    <div class="sbl">Contenido</div>
+                    <button class="si" id="asi-pubs" onclick="setAdminSection('pubs')"><i class="ti ti-file-text"></i>
+                        Publicaciones</button>
+                    <button class="si" id="asi-reports" onclick="setAdminSection('reports')"><i class="ti ti-flag"></i>
+                        Reportes <span class="sbadge" style="background:var(--err);color:#fff">12</span></button>
+                    <div class="sbl">Seguridad</div>
+                    <button class="si" id="asi-security" onclick="setAdminSection('security')"><i
+                            class="ti ti-lock"></i> Seguridad</button>
+                    <button class="si" id="asi-audit" onclick="setAdminSection('audit')"><i class="ti ti-eye"></i>
+                        Auditoría</button>
+                    <div class="sbl">Análisis</div>
+                    <button class="si" id="asi-stats" onclick="setAdminSection('astats')"><i
+                            class="ti ti-chart-bar"></i> Estadísticas</button>
+                    <button class="si" id="asi-config" onclick="setAdminSection('config')"><i
+                            class="ti ti-settings"></i> Configuración</button>
+                    <div style="height:1px;background:var(--bdr);margin:10px 0"></div>
+                    <button class="si" onclick="logout()"><i class="ti ti-logout"></i> Cerrar sesión</button>
+                </div>
+                <div class="main" id="admin-main"></div>
+            </div>

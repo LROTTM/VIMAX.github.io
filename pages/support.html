@@ -1,0 +1,32 @@
+<div id="page-support" class="split-page">
+                <div class="sidebar">
+                    <div style="padding:8px 6px 14px">
+                        <div style="font-size:11px;font-weight:700;color:var(--acc3)">🎧 SOPORTE</div>
+                    </div>
+                    <div class="sbl">Tickets</div>
+                    <button class="si on" id="ssi-all" onclick="setSupportSection('all')"><i class="ti ti-ticket"></i>
+                        Todos <span class="sbadge" style="background:var(--acc);color:#fff"
+                            id="sup-all-badge">24</span></button>
+                    <button class="si" id="ssi-pending" onclick="setSupportSection('pending')"><i
+                            class="ti ti-clock"></i> Pendientes <span class="sbadge"
+                            style="background:var(--warn);color:#000">8</span></button>
+                    <button class="si" id="ssi-progress" onclick="setSupportSection('progress')"><i
+                            class="ti ti-refresh"></i> En Proceso <span class="sbadge"
+                            style="background:var(--acc);color:#fff">10</span></button>
+                    <button class="si" id="ssi-resolved" onclick="setSupportSection('resolved')"><i
+                            class="ti ti-check"></i> Resueltos</button>
+                    <div class="sbl">Herramientas</div>
+                    <button class="si" onclick="goPage('chat')"><i class="ti ti-message-2"></i> Chat con
+                        Usuarios</button>
+                    <button class="si" id="ssi-sreports" onclick="setSupportSection('sreports')"><i
+                            class="ti ti-flag"></i> Reportes <span class="sbadge"
+                            style="background:var(--err);color:#fff">12</span></button>
+                    <button class="si" id="ssi-mod" onclick="setSupportSection('mod')"><i class="ti ti-ban"></i>
+                        Moderación</button>
+                    <button class="si" id="ssi-actlog" onclick="setSupportSection('actlog')"><i
+                            class="ti ti-history"></i> Historial Acciones</button>
+                    <div style="height:1px;background:var(--bdr);margin:10px 0"></div>
+                    <button class="si" onclick="logout()"><i class="ti ti-logout"></i> Cerrar sesión</button>
+                </div>
+                <div class="main" id="support-main"></div>
+            </div>

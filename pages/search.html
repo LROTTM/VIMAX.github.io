@@ -1,0 +1,66 @@
+<div id="page-search" class="page">
+                <div class="main">
+                    <div class="ph">
+                        <div>
+                            <h2>Buscar Mecánicos</h2>
+                            <p id="search-count">2,400+ mecánicos verificados disponibles</p>
+                        </div>
+                        <button class="btn btn-p" onclick="openModal('modalExpress')"><i class="ti ti-bolt"></i>
+                            Solicitud Express</button>
+                    </div>
+
+                    <!-- MAP -->
+                    <div id="map-container" style="margin-bottom:14px"></div>
+
+                    <!-- SEARCH BAR -->
+                    <div class="sbar">
+                        <div class="srel"><i class="ti ti-search"></i><input id="s-query" type="text"
+                                placeholder="Nombre, servicio o especialidad..." oninput="doSearch()"></div>
+                        <div class="srel" style="min-width:150px;max-width:190px"><i class="ti ti-map-pin"></i><input
+                                id="s-loc" type="text" placeholder="Ubicación..." value="La Paz, Bolivia"
+                                oninput="doSearch()"></div>
+                        <select id="s-dist" class="fi" style="width:120px" onchange="doSearch()">
+                            <option value="1">1 km</option>
+                            <option value="5">5 km</option>
+                            <option value="10" selected>10 km</option>
+                            <option value="20">20 km</option>
+                            <option value="999">Cualquier distancia</option>
+                        </select>
+                        <button class="btn btn-p" onclick="doSearch()"><i class="ti ti-search"></i> Buscar</button>
+                    </div>
+
+                    <!-- CATEGORY CHIPS -->
+                    <div class="chips" id="cat-chips">
+                        <span class="chip on" data-cat="all" onclick="setChip(this,'cat')">Todos</span>
+                        <span class="chip" data-cat="Motor" onclick="setChip(this,'cat')">Motor</span>
+                        <span class="chip" data-cat="Frenos" onclick="setChip(this,'cat')">Frenos</span>
+                        <span class="chip" data-cat="Eléctrico" onclick="setChip(this,'cat')">Eléctrico</span>
+                        <span class="chip" data-cat="Transmisión" onclick="setChip(this,'cat')">Transmisión</span>
+                        <span class="chip" data-cat="Carrocería" onclick="setChip(this,'cat')">Carrocería</span>
+                        <span class="chip" data-cat="AC" onclick="setChip(this,'cat')">AC / Climatización</span>
+                        <span class="chip" data-cat="Diagnóstico" onclick="setChip(this,'cat')">Diagnóstico</span>
+                        <span class="chip" data-cat="Suspensión" onclick="setChip(this,'cat')">Suspensión</span>
+                    </div>
+
+                    <!-- SORT & RESULTS -->
+                    <div
+                        style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+                        <span id="result-label" style="font-size:13px;color:var(--tx2)">Mostrando <strong
+                                style="color:var(--tx1)" id="result-count">6</strong> mecánicos</span>
+                        <select id="s-sort" class="fi" style="width:200px" onchange="doSearch()">
+                            <option value="dist">Ordenar: Más cercano</option>
+                            <option value="rating">Mejor calificación</option>
+                            <option value="price_asc">Precio: menor a mayor</option>
+                            <option value="price_desc">Precio: mayor a menor</option>
+                            <option value="jobs">Más trabajos</option>
+                        </select>
+                    </div>
+
+                    <div class="mgrid" id="mech-results"></div>
+                    <div id="no-results" style="display:none;text-align:center;padding:40px;color:var(--tx2)">
+                        <i class="ti ti-search-off"
+                            style="font-size:40px;color:var(--tx3);display:block;margin-bottom:12px"></i>
+                        No se encontraron mecánicos con esos criterios. Intenta ampliar la búsqueda.
+                    </div>
+                </div>
+            </div>

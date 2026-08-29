@@ -1,0 +1,18 @@
+<div id="page-chat" class="split-page" style="min-height:calc(100vh - 56px)">
+                <div class="chl">
+                    <div class="chls"><input id="chat-search" type="text" placeholder="Buscar conversaciones..."
+                            oninput="filterConvs(this.value)"></div>
+                    <div class="chl-list" id="conv-list"></div>
+                    <div style="padding:11px;border-top:1px solid var(--bdr)">
+                        <button class="btn btn-p" style="width:100%;font-size:12px"
+                            onclick="openModal('modalNewChat')"><i class="ti ti-plus"></i> Nueva conversación</button>
+                    </div>
+                </div>
+                <div class="chm" id="chat-main">
+                    <div
+                        style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--tx3);flex-direction:column;gap:12px">
+                        <i class="ti ti-message-2" style="font-size:44px"></i>
+                        <p>Selecciona una conversación o inicia una nueva</p>
+                    </div>
+                </div>
+            </div>

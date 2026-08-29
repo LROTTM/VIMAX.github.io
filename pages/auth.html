@@ -1,0 +1,79 @@
+<div id="page-auth" class="flex-page" style="min-height:calc(100vh - 56px)">
+                <div class="auth-wrap">
+                    <div class="auth-card">
+                        <div style="text-align:center;margin-bottom:28px">
+                            <div class="logo" style="justify-content:center;font-size:22px;margin-bottom:4px">
+                                <div class="logo-box"><i class="ti ti-tools"></i></div>VI<span>MAX</span>
+                            </div>
+                            <p style="color:var(--tx2);font-size:13px">Plataforma de mecánicos verificados</p>
+                        </div>
+                        <div class="tabs" id="auth-tabs">
+                            <button class="tab on" onclick="setAuthTab('login')">Iniciar sesión</button>
+                            <button class="tab" onclick="setAuthTab('register')">Registrarse</button>
+                        </div>
+                        <div id="auth-form-login">
+                            <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" id="li-email"
+                                    type="email" placeholder="tu@correo.com"></div>
+                            <div class="fg"><label class="fl">Contraseña</label><input class="fi" id="li-pass"
+                                    type="password" placeholder="••••••••"></div>
+                            <div style="text-align:right;margin-bottom:14px"><a href="#"
+                                    style="font-size:12px;color:var(--acc3)"
+                                    onclick="openModal('modalForgot')">¿Olvidaste tu contraseña?</a></div>
+                            <button class="btn btn-p" style="width:100%;padding:10px" onclick="doLogin()"><i
+                                    class="ti ti-login"></i> Iniciar sesión</button>
+                            <div class="divider">o prueba con</div>
+                            <div style="display:flex;flex-direction:column;gap:7px">
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('client')"><i class="ti ti-user"></i> Entrar como Cliente
+                                    (demo)</button>
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('mechanic')"><i class="ti ti-tools"></i> Entrar como Mecánico
+                                    (demo)</button>
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('admin')"><i class="ti ti-shield"></i> Entrar como Admin
+                                    (demo)</button>
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('support')"><i class="ti ti-headset"></i> Entrar como Soporte
+                                    (demo)</button>
+                            </div>
+                        </div>
+                        <div id="auth-form-register" style="display:none">
+                            <div class="tabs" id="reg-role-tabs" style="margin-bottom:14px">
+                                <button class="tab on" onclick="setRegRole('client')">Soy Cliente</button>
+                                <button class="tab" onclick="setRegRole('mechanic')">Soy Mecánico</button>
+                            </div>
+                            <div class="fr">
+                                <div class="fg"><label class="fl">Nombre</label><input class="fi" id="rg-fname"
+                                        placeholder="Tu nombre"></div>
+                                <div class="fg"><label class="fl">Apellido</label><input class="fi" id="rg-lname"
+                                        placeholder="Tu apellido"></div>
+                            </div>
+                            <div class="fg"><label class="fl">Correo</label><input class="fi" id="rg-email" type="email"
+                                    placeholder="tu@correo.com"></div>
+                            <div class="fg"><label class="fl">Contraseña</label><input class="fi" id="rg-pass"
+                                    type="password" placeholder="Mín. 8 caracteres"></div>
+                            <div class="fg"><label class="fl">Confirmar contraseña</label><input class="fi"
+                                    id="rg-pass2" type="password" placeholder="Repite tu contraseña"></div>
+                            <div id="mech-extra" style="display:none">
+                                <div class="fg"><label class="fl">Especialidad principal</label><select class="fi"
+                                        id="rg-spec">
+                                        <option>Motor</option>
+                                        <option>Frenos</option>
+                                        <option>Eléctrico</option>
+                                        <option>Transmisión</option>
+                                        <option>AC</option>
+                                        <option>Carrocería</option>
+                                        <option>Diagnóstico</option>
+                                    </select></div>
+                                <div class="fg"><label class="fl">Años de experiencia</label><input class="fi"
+                                        id="rg-exp" type="number" min="0" max="50" value="2"></div>
+                            </div>
+                            <button class="btn btn-p" style="width:100%;padding:10px;margin-top:4px"
+                                onclick="doRegister()"><i class="ti ti-user-plus"></i> Crear cuenta gratis</button>
+                            <p style="font-size:11px;color:var(--tx3);text-align:center;margin-top:10px">Al registrarte
+                                aceptas los <a href="#" style="color:var(--acc3)">Términos</a> y la <a href="#"
+                                    style="color:var(--acc3)">Privacidad</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
