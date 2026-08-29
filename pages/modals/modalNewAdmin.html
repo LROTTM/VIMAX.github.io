@@ -1,0 +1,36 @@
+<div id="modalNewAdmin" class="overlay">
+                <div class="modal">
+                    <div class="mh">Crear Administrador<button class="mclose" onclick="closeModal('modalNewAdmin')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Nombre completo</label><input class="fi" id="na-name"
+                            placeholder="Nombre del administrador"></div>
+                    <div class="fg"><label class="fl">Correo</label><input class="fi" id="na-email" type="email"
+                            placeholder="admin@vimax.bo"></div>
+                    <div class="fg"><label class="fl">Contraseña inicial</label><input class="fi" id="na-pass"
+                            type="password" placeholder="Contraseña temporal"></div>
+                    <div class="fg"><label class="fl">Tipo de acceso</label><select class="fi" id="na-role">
+                            <option value="admin">Administrador General</option>
+                            <option value="mod">Moderador de Contenido</option>
+                            <option value="support">Soporte Técnico</option>
+                            <option value="analyst">Analítica</option>
+                        </select></div>
+                    <div class="fg">
+                        <label class="fl">Permisos</label>
+                        <div
+                            style="background:var(--bg3);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px">
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-users" checked> Gestión de usuarios</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-mechs" checked> Gestión de mecánicos</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-pay"> Gestión de pagos</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-audit"> Acceso a auditoría</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-suspend"> Suspensión de cuentas</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="createAdmin()"><i
+                            class="ti ti-user-plus"></i> Crear administrador</button>
+                </div>
+            </div>

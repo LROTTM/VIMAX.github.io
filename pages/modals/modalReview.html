@@ -1,0 +1,24 @@
+<div id="modalReview" class="overlay">
+                <div class="modal">
+                    <div class="mh">Calificar Servicio<button class="mclose" onclick="closeModal('modalReview')"><i
+                                class="ti ti-x"></i></button></div>
+                    <input type="hidden" id="rev-mech-id">
+                    <input type="hidden" id="rev-booking-id">
+                    <div style="text-align:center;margin-bottom:18px">
+                        <p style="color:var(--tx2);margin-bottom:12px">¿Cómo calificarías el servicio?</p>
+                        <div id="star-picker" style="display:flex;gap:6px;justify-content:center">
+                            <span class="rstar" data-val="1" onclick="setStars(1)">★</span>
+                            <span class="rstar" data-val="2" onclick="setStars(2)">★</span>
+                            <span class="rstar" data-val="3" onclick="setStars(3)">★</span>
+                            <span class="rstar" data-val="4" onclick="setStars(4)">★</span>
+                            <span class="rstar" data-val="5" onclick="setStars(5)">★</span>
+                        </div>
+                        <p id="star-label" style="font-size:13px;color:var(--tx3);margin-top:8px">Selecciona una
+                            calificación</p>
+                    </div>
+                    <div class="fg"><label class="fl">Comentario (opcional)</label><textarea class="fi" id="rev-comment"
+                            rows="3" placeholder="Comparte tu experiencia..."></textarea></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="submitReview()"><i
+                            class="ti ti-star"></i> Enviar calificación</button>
+                </div>
+            </div>

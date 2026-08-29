@@ -1,0 +1,10 @@
+<div id="modalNewChat" class="overlay">
+                <div class="modal">
+                    <div class="mh">Nueva conversación<button class="mclose" onclick="closeModal('modalNewChat')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Buscar usuario o mecánico</label><input class="fi" id="nc-search"
+                            placeholder="Nombre o correo..." oninput="searchUsersForChat(this.value)"></div>
+                    <div id="nc-results"
+                        style="display:flex;flex-direction:column;gap:7px;max-height:250px;overflow-y:auto"></div>
+                </div>
+            </div>

@@ -1,0 +1,32 @@
+<div id="modalRegister" class="overlay">
+                <div class="modal">
+                    <div class="mh">Crear cuenta VIMAX<button class="mclose" onclick="closeModal('modalRegister')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="tabs">
+                        <button class="tab on" onclick="setRegTab(this,'client')">Soy Cliente</button>
+                        <button class="tab" onclick="setRegTab(this,'mechanic')">Soy Mecánico</button>
+                    </div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Nombre</label><input class="fi" id="m-fname"
+                                placeholder="Tu nombre"></div>
+                        <div class="fg"><label class="fl">Apellido</label><input class="fi" id="m-lname"
+                                placeholder="Tu apellido"></div>
+                    </div>
+                    <div class="fg"><label class="fl">Correo</label><input class="fi" id="m-email" type="email"
+                            placeholder="tu@correo.com"></div>
+                    <div class="fg"><label class="fl">Contraseña</label><input class="fi" id="m-pass" type="password"
+                            placeholder="Mín. 8 caracteres"></div>
+                    <div id="m-mech-extra" style="display:none">
+                        <div class="fg"><label class="fl">Especialidad</label><select class="fi" id="m-spec">
+                                <option>Motor</option>
+                                <option>Frenos</option>
+                                <option>Eléctrico</option>
+                                <option>Transmisión</option>
+                                <option>AC</option>
+                            </select></div>
+                    </div>
+                    <input type="hidden" id="m-role" value="client">
+                    <button class="btn btn-p" style="width:100%;padding:10px;margin-top:6px"
+                        onclick="doRegisterModal()"><i class="ti ti-user-plus"></i> Crear cuenta gratis</button>
+                </div>
+            </div>

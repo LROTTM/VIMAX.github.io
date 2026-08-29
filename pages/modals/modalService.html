@@ -1,0 +1,29 @@
+<div id="modalService" class="overlay">
+                <div class="modal">
+                    <div class="mh" id="modal-svc-title">Nuevo Servicio<button class="mclose"
+                            onclick="closeModal('modalService')"><i class="ti ti-x"></i></button></div>
+                    <input type="hidden" id="svc-edit-id">
+                    <div class="fg"><label class="fl">Nombre del servicio</label><input class="fi" id="svc-name"
+                            placeholder="Ej: Cambio de aceite y filtros"></div>
+                    <div class="fg"><label class="fl">Categoría</label><select class="fi" id="svc-cat">
+                            <option>Motor</option>
+                            <option>Frenos</option>
+                            <option>Eléctrico</option>
+                            <option>Transmisión</option>
+                            <option>AC</option>
+                            <option>Carrocería</option>
+                            <option>Diagnóstico</option>
+                            <option>Suspensión</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Descripción</label><textarea class="fi" id="svc-desc" rows="2"
+                            placeholder="Describe qué incluye el servicio..."></textarea></div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Precio (Bs.)</label><input class="fi" id="svc-price"
+                                type="number" placeholder="150"></div>
+                        <div class="fg"><label class="fl">Tiempo estimado</label><input class="fi" id="svc-time"
+                                placeholder="~30 min"></div>
+                    </div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="saveService()"><i
+                            class="ti ti-check"></i> Guardar servicio</button>
+                </div>
+            </div>

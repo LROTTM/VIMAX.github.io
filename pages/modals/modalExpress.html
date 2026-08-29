@@ -1,0 +1,33 @@
+<div id="modalExpress" class="overlay">
+                <div class="modal">
+                    <div class="mh"><span><i class="ti ti-bolt" style="color:var(--warn)"></i> Solicitud
+                            Express</span><button class="mclose" onclick="closeModal('modalExpress')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Tipo de servicio</label><select class="fi" id="ex-type">
+                            <option>Motor</option>
+                            <option>Frenos</option>
+                            <option>Eléctrico</option>
+                            <option>Transmisión</option>
+                            <option>AC</option>
+                            <option>Carrocería</option>
+                            <option>Diagnóstico</option>
+                            <option>Emergencia general</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Describe el problema</label><textarea class="fi" id="ex-desc"
+                            rows="3" placeholder="Describe el problema de tu vehículo..."></textarea></div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Marca del vehículo</label><input class="fi" id="ex-brand"
+                                placeholder="Toyota, Kia..."></div>
+                        <div class="fg"><label class="fl">Año</label><input class="fi" id="ex-year" type="number"
+                                placeholder="2019"></div>
+                    </div>
+                    <div class="fg"><label class="fl">Ubicación</label><input class="fi" id="ex-loc"
+                            placeholder="Tu dirección..." value="Av. Arce 2356, La Paz"></div>
+                    <div
+                        style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:8px;padding:10px;margin-bottom:14px;display:flex;gap:8px;font-size:13px;color:var(--acc3)">
+                        <i class="ti ti-bolt"></i> Se notificará a mecánicos cercanos de inmediato
+                    </div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="sendExpress()"><i
+                            class="ti ti-send"></i> Enviar solicitud express</button>
+                </div>
+            </div>

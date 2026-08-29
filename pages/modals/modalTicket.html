@@ -1,0 +1,25 @@
+<div id="modalTicket" class="overlay">
+                <div class="modal">
+                    <div class="mh">Nuevo Ticket de Soporte<button class="mclose" onclick="closeModal('modalTicket')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Categoría</label><select class="fi" id="tk-cat">
+                            <option>Incumplimiento de servicio</option>
+                            <option>Problema de pago</option>
+                            <option>Comportamiento inapropiado</option>
+                            <option>Error técnico</option>
+                            <option>Verificación</option>
+                            <option>Otro</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Prioridad</label><select class="fi" id="tk-pri">
+                            <option value="NORMAL">Normal</option>
+                            <option value="HIGH">Alta</option>
+                            <option value="URGENT">Urgente</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Título</label><input class="fi" id="tk-title"
+                            placeholder="Resume el problema brevemente..."></div>
+                    <div class="fg"><label class="fl">Descripción detallada</label><textarea class="fi" id="tk-desc"
+                            rows="4" placeholder="Describe el problema con todos los detalles..."></textarea></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="createTicket()"><i
+                            class="ti ti-ticket"></i> Crear ticket</button>
+                </div>
+            </div>

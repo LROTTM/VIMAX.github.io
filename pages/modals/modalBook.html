@@ -1,0 +1,22 @@
+<div id="modalBook" class="overlay">
+                <div class="modal">
+                    <div class="mh" id="book-title">Contratar Servicio<button class="mclose"
+                            onclick="closeModal('modalBook')"><i class="ti ti-x"></i></button></div>
+                    <input type="hidden" id="book-mech-id">
+                    <input type="hidden" id="book-svc-id">
+                    <div class="fg"><label class="fl">Descripción del problema</label><textarea class="fi"
+                            id="book-desc" rows="2" placeholder="Describe qué necesitas..."></textarea></div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Marca del vehículo</label><input class="fi" id="book-brand"
+                                placeholder="Toyota"></div>
+                        <div class="fg"><label class="fl">Año</label><input class="fi" id="book-year" type="number"
+                                placeholder="2019"></div>
+                    </div>
+                    <div class="fg"><label class="fl">Ubicación</label><input class="fi" id="book-loc"
+                            placeholder="Tu dirección..." value="La Paz, Bolivia"></div>
+                    <div class="fg"><label class="fl">Fecha y hora preferida</label><input class="fi" id="book-date"
+                            type="datetime-local"></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="submitBooking()"><i
+                            class="ti ti-check"></i> Confirmar solicitud</button>
+                </div>
+            </div>
