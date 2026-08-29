@@ -1,0 +1,855 @@
+<!DOCTYPE html>
+    <html lang="es">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>VIMAX - Vinculación Inteligente de Mecánicos y Asistencia eXpress</title>
+        <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@tabler/icons-webfont@2.47.0/tabler-icons.min.css">
+        <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css">
+        <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+                <link rel="stylesheet" href="css/modules/base.css">
+        <link rel="stylesheet" href="css/modules/search.css">
+        <link rel="stylesheet" href="css/modules/communication.css">
+        <link rel="stylesheet" href="css/modules/profiles.css">
+        <link rel="stylesheet" href="css/modules/home.css">
+        <link rel="stylesheet" href="css/modules/dashboard.css">
+    </head>
+
+    <body>
+        <div id="app">
+
+            <!-- TOPNAV -->
+            <nav id="topnav">
+                <div class="logo" onclick="goPage('home')">
+                    <div class="logo-box"><i class="ti ti-tools"></i></div>
+                    VI<span>MAX</span>
+                </div>
+                <div class="nav-links">
+                    <button class="nb on" id="nav-home" onclick="goPage('home')"><i
+                            class="ti ti-home"></i><span>Inicio</span></button>
+                    <button class="nb" id="nav-search" onclick="goPage('search')"><i
+                            class="ti ti-search"></i><span>Buscar</span></button>
+                    <button class="nb" id="nav-dash" onclick="goPage('dash')"><i
+                            class="ti ti-dashboard"></i><span>Dashboard</span></button>
+                    <button class="nb" id="nav-admin" onclick="goPage('admin')"><i
+                            class="ti ti-shield"></i><span>Admin</span></button>
+                    <button class="nb" id="nav-support" onclick="goPage('support')"><i
+                            class="ti ti-headset"></i><span>Soporte</span></button>
+                </div>
+                <div class="nav-r">
+                    <button class="bdn" id="btn-chat-nav" onclick="goPage('chat')" title="Mensajes"><i
+                            class="ti ti-message-2"></i><span class="dot" style="background:var(--acc)"></span></button>
+                    <button class="bdn" id="btn-notif-nav" onclick="goPage('notif')" title="Notificaciones"><i
+                            class="ti ti-bell"></i><span class="dot" style="background:var(--err)"></span></button>
+                    <div id="nav-auth-btns">
+                        <button class="btn btn-o" style="margin-right:6px" onclick="goPage('auth')"><i
+                                class="ti ti-login"></i> Entrar</button>
+                        <button class="btn btn-p" onclick="openModal('modalRegister')"><i class="ti ti-user-plus"></i>
+                            Registrarse</button>
+                    </div>
+                    <div id="nav-user-info" style="display:none;align-items:center;gap:8px">
+                        <div id="nav-avatar" class="av" style="width:32px;height:32px;font-size:12px;cursor:pointer"
+                            onclick="goPage('myprofile')"></div>
+                        <button class="btn btn-o btn-sm" onclick="logout()"><i class="ti ti-logout"></i></button>
+                    </div>
+                </div>
+            </nav>
+            <main id="page-root">
+<div id="page-home" class="page show">
+                <div class="hero">
+                    <div class="htag"><i class="ti ti-bolt" style="font-size:11px"></i> Plataforma #1 de servicios
+                        mecánicos</div>
+                    <h1>Conectamos <span>Mecánicos</span><br>con Clientes al Instante</h1>
+                    <p>Encuentra mecánicos verificados cerca de ti. Compara, contacta y contrata con total seguridad.
+                    </p>
+                    <div class="hbtns">
+                        <button class="btn btn-p btn-lg" onclick="goPage('search')"><i class="ti ti-map-pin"></i>
+                            Encontrar Mecánico</button>
+                        <button class="btn btn-o btn-lg" onclick="openModal('modalRegister')"><i
+                                class="ti ti-tools"></i> Soy Mecánico</button>
+                    </div>
+                    <div class="stats">
+                        <div>
+                            <div class="statnum">2,400+</div>
+                            <div class="statlbl">Mecánicos activos</div>
+                        </div>
+                        <div>
+                            <div class="statnum">18,700+</div>
+                            <div class="statlbl">Servicios completados</div>
+                        </div>
+                        <div>
+                            <div class="statnum">4.8★</div>
+                            <div class="statlbl">Calificación promedio</div>
+                        </div>
+                        <div>
+                            <div class="statnum">98%</div>
+                            <div class="statlbl">Satisfacción</div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FEATURES -->
+                <div style="padding:50px 24px;background:var(--bg1);border-bottom:1px solid var(--bdr)">
+                    <div style="text-align:center;margin-bottom:36px">
+                        <h2 style="font-size:28px">¿Por qué VIMAX?</h2>
+                        <p style="color:var(--tx2);margin-top:6px">Seguridad, velocidad y confianza</p>
+                    </div>
+                    <div class="g3" style="max-width:900px;margin:0 auto">
+                        <div class="card" style="text-align:center;padding:22px">
+                            <div
+                                style="width:44px;height:44px;border-radius:10px;background:rgba(37,99,235,.15);color:var(--acc3);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px">
+                                <i class="ti ti-shield-check"></i>
+                            </div>
+                            <h3 style="font-size:14px;margin-bottom:7px">Mecánicos Verificados</h3>
+                            <p style="font-size:12px;color:var(--tx2)">Verificación de identidad y credenciales
+                                profesionales.</p>
+                        </div>
+                        <div class="card" style="text-align:center;padding:22px">
+                            <div
+                                style="width:44px;height:44px;border-radius:10px;background:rgba(16,185,129,.15);color:var(--ok);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px">
+                                <i class="ti ti-location"></i>
+                            </div>
+                            <h3 style="font-size:14px;margin-bottom:7px">Asistencia en tu Ubicación</h3>
+                            <p style="font-size:12px;color:var(--tx2)">Geolocalización real para el mecánico más
+                                cercano.</p>
+                        </div>
+                        <div class="card" style="text-align:center;padding:22px">
+                            <div
+                                style="width:44px;height:44px;border-radius:10px;background:rgba(245,158,11,.15);color:var(--warn);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px">
+                                <i class="ti ti-star"></i>
+                            </div>
+                            <h3 style="font-size:14px;margin-bottom:7px">Sistema de Calificaciones</h3>
+                            <p style="font-size:12px;color:var(--tx2)">Evalúa y lee opiniones reales de clientes.</p>
+                        </div>
+                        <div class="card" style="text-align:center;padding:22px">
+                            <div
+                                style="width:44px;height:44px;border-radius:10px;background:rgba(139,92,246,.15);color:#A78BFA;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px">
+                                <i class="ti ti-message-2"></i>
+                            </div>
+                            <h3 style="font-size:14px;margin-bottom:7px">Chat en Tiempo Real</h3>
+                            <p style="font-size:12px;color:var(--tx2)">Mensajería directa con WebSockets.</p>
+                        </div>
+                        <div class="card" style="text-align:center;padding:22px">
+                            <div
+                                style="width:44px;height:44px;border-radius:10px;background:rgba(239,68,68,.15);color:var(--err);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px">
+                                <i class="ti ti-bolt"></i>
+                            </div>
+                            <h3 style="font-size:14px;margin-bottom:7px">Respuesta Express</h3>
+                            <p style="font-size:12px;color:var(--tx2)">Asistencia urgente en minutos.</p>
+                        </div>
+                        <div class="card" style="text-align:center;padding:22px">
+                            <div
+                                style="width:44px;height:44px;border-radius:10px;background:rgba(16,185,129,.15);color:var(--ok);display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:20px">
+                                <i class="ti ti-chart-bar"></i>
+                            </div>
+                            <h3 style="font-size:14px;margin-bottom:7px">Panel de Estadísticas</h3>
+                            <p style="font-size:12px;color:var(--tx2)">Dashboard completo para mecánicos.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- HOW IT WORKS -->
+                <div style="padding:50px 24px">
+                    <div style="text-align:center;margin-bottom:36px">
+                        <h2 style="font-size:28px">Cómo funciona</h2>
+                        <p style="color:var(--tx2);margin-top:6px">En 3 pasos simples</p>
+                    </div>
+                    <div class="g3" style="max-width:700px;margin:0 auto">
+                        <div style="text-align:center;padding:20px">
+                            <div
+                                style="width:56px;height:56px;background:rgba(37,99,235,.1);border:2px solid rgba(37,99,235,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;font-weight:700;color:var(--acc3)">
+                                1</div>
+                            <h3 style="font-size:15px;margin-bottom:7px">Describe tu problema</h3>
+                            <p style="color:var(--tx2);font-size:13px">Usa el buscador o solicitud express para
+                                describir la falla de tu vehículo.</p>
+                        </div>
+                        <div style="text-align:center;padding:20px">
+                            <div
+                                style="width:56px;height:56px;background:rgba(16,185,129,.1);border:2px solid rgba(16,185,129,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;font-weight:700;color:var(--ok)">
+                                2</div>
+                            <h3 style="font-size:15px;margin-bottom:7px">Elige tu mecánico</h3>
+                            <p style="color:var(--tx2);font-size:13px">Compara mecánicos por cercanía, precio y
+                                calificación.</p>
+                        </div>
+                        <div style="text-align:center;padding:20px">
+                            <div
+                                style="width:56px;height:56px;background:rgba(245,158,11,.1);border:2px solid rgba(245,158,11,.25);border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 14px;font-size:22px;font-weight:700;color:var(--warn)">
+                                3</div>
+                            <h3 style="font-size:15px;margin-bottom:7px">Recibe el servicio</h3>
+                            <p style="color:var(--tx2);font-size:13px">El mecánico va a tu ubicación. Al finalizar
+                                califica el servicio.</p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MECHANIC CTA -->
+                <div style="padding:40px 24px;background:var(--bg1);border-top:1px solid var(--bdr)">
+                    <div class="card" style="max-width:660px;margin:0 auto;text-align:center;padding:36px">
+                        <div style="font-size:36px;margin-bottom:14px">🔧</div>
+                        <h2 style="font-size:24px;margin-bottom:10px">¿Eres mecánico?</h2>
+                        <p style="color:var(--tx2);margin-bottom:22px">Únete y consigue más clientes. Crea tu perfil,
+                            publica servicios y gestiona todo desde tu panel.</p>
+                        <div style="display:flex;justify-content:center;gap:10px;flex-wrap:wrap">
+                            <button class="btn btn-p btn-lg" onclick="goPage('dash')"><i class="ti ti-tools"></i> Ver
+                                Panel de Mecánico</button>
+                            <button class="btn btn-o btn-lg" onclick="openModal('modalRegister')"><i
+                                    class="ti ti-user-plus"></i> Crear Perfil Gratis</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- FOOTER -->
+                <div style="background:var(--bg1);border-top:1px solid var(--bdr);padding:28px 24px;text-align:center">
+                    <div class="logo" style="justify-content:center;margin-bottom:12px">
+                        <div class="logo-box"><i class="ti ti-tools"></i></div>VI<span>MAX</span>
+                    </div>
+                    <p style="color:var(--tx3);font-size:12px;margin-bottom:14px">Vinculación Inteligente de Mecánicos y
+                        Asistencia eXpress</p>
+                    <div
+                        style="display:flex;justify-content:center;gap:18px;flex-wrap:wrap;font-size:12px;color:var(--tx3)">
+                        <a href="#" style="color:var(--tx3)">Términos</a><a href="#"
+                            style="color:var(--tx3)">Privacidad</a><a href="#" style="color:var(--tx3)">Ayuda</a><a
+                            href="#" style="color:var(--tx3)">Contacto</a>
+                    </div>
+                    <p style="color:var(--tx3);font-size:11px;margin-top:12px">© 2025 VIMAX. Todos los derechos
+                        reservados.</p>
+                </div>
+            </div>
+
+<div id="page-search" class="page">
+                <div class="main">
+                    <div class="ph">
+                        <div>
+                            <h2>Buscar Mecánicos</h2>
+                            <p id="search-count">2,400+ mecánicos verificados disponibles</p>
+                        </div>
+                        <button class="btn btn-p" onclick="openModal('modalExpress')"><i class="ti ti-bolt"></i>
+                            Solicitud Express</button>
+                    </div>
+
+                    <!-- MAP -->
+                    <div id="map-container" style="margin-bottom:14px"></div>
+
+                    <!-- SEARCH BAR -->
+                    <div class="sbar">
+                        <div class="srel"><i class="ti ti-search"></i><input id="s-query" type="text"
+                                placeholder="Nombre, servicio o especialidad..." oninput="doSearch()"></div>
+                        <div class="srel" style="min-width:150px;max-width:190px"><i class="ti ti-map-pin"></i><input
+                                id="s-loc" type="text" placeholder="Ubicación..." value="La Paz, Bolivia"
+                                oninput="doSearch()"></div>
+                        <select id="s-dist" class="fi" style="width:120px" onchange="doSearch()">
+                            <option value="1">1 km</option>
+                            <option value="5">5 km</option>
+                            <option value="10" selected>10 km</option>
+                            <option value="20">20 km</option>
+                            <option value="999">Cualquier distancia</option>
+                        </select>
+                        <button class="btn btn-p" onclick="doSearch()"><i class="ti ti-search"></i> Buscar</button>
+                    </div>
+
+                    <!-- CATEGORY CHIPS -->
+                    <div class="chips" id="cat-chips">
+                        <span class="chip on" data-cat="all" onclick="setChip(this,'cat')">Todos</span>
+                        <span class="chip" data-cat="Motor" onclick="setChip(this,'cat')">Motor</span>
+                        <span class="chip" data-cat="Frenos" onclick="setChip(this,'cat')">Frenos</span>
+                        <span class="chip" data-cat="Eléctrico" onclick="setChip(this,'cat')">Eléctrico</span>
+                        <span class="chip" data-cat="Transmisión" onclick="setChip(this,'cat')">Transmisión</span>
+                        <span class="chip" data-cat="Carrocería" onclick="setChip(this,'cat')">Carrocería</span>
+                        <span class="chip" data-cat="AC" onclick="setChip(this,'cat')">AC / Climatización</span>
+                        <span class="chip" data-cat="Diagnóstico" onclick="setChip(this,'cat')">Diagnóstico</span>
+                        <span class="chip" data-cat="Suspensión" onclick="setChip(this,'cat')">Suspensión</span>
+                    </div>
+
+                    <!-- SORT & RESULTS -->
+                    <div
+                        style="display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:8px">
+                        <span id="result-label" style="font-size:13px;color:var(--tx2)">Mostrando <strong
+                                style="color:var(--tx1)" id="result-count">6</strong> mecánicos</span>
+                        <select id="s-sort" class="fi" style="width:200px" onchange="doSearch()">
+                            <option value="dist">Ordenar: Más cercano</option>
+                            <option value="rating">Mejor calificación</option>
+                            <option value="price_asc">Precio: menor a mayor</option>
+                            <option value="price_desc">Precio: mayor a menor</option>
+                            <option value="jobs">Más trabajos</option>
+                        </select>
+                    </div>
+
+                    <div class="mgrid" id="mech-results"></div>
+                    <div id="no-results" style="display:none;text-align:center;padding:40px;color:var(--tx2)">
+                        <i class="ti ti-search-off"
+                            style="font-size:40px;color:var(--tx3);display:block;margin-bottom:12px"></i>
+                        No se encontraron mecánicos con esos criterios. Intenta ampliar la búsqueda.
+                    </div>
+                </div>
+            </div>
+
+<div id="page-profile" class="page">
+                <div class="main" id="profile-content"></div>
+            </div>
+
+<div id="page-myprofile" class="page">
+                <div class="main" id="myprofile-content"></div>
+            </div>
+
+<div id="page-dash" class="split-page">
+                <div class="sidebar">
+                    <div class="user-mini">
+                        <div class="av" id="dash-avatar" style="width:38px;height:38px;font-size:13px"></div>
+                        <div style="min-width:0">
+                            <div style="font-size:13px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"
+                                id="dash-uname">Marco Rodríguez</div>
+                            <div class="sta sta-on" style="color:var(--ok);font-size:11px" id="dash-status-lbl">
+                                Disponible</div>
+                        </div>
+                    </div>
+                    <div class="sbl">Principal</div>
+                    <button class="si on" id="dsi-overview" onclick="setDashSection('overview')"><i
+                            class="ti ti-dashboard"></i> Resumen</button>
+                    <button class="si" id="dsi-requests" onclick="setDashSection('requests')"><i
+                            class="ti ti-list-check"></i> Solicitudes <span class="sbadge" id="req-badge"
+                            style="background:var(--warn);color:#000">5</span></button>
+                    <button class="si" id="dsi-services" onclick="setDashSection('services')"><i
+                            class="ti ti-tools"></i> Mis Servicios</button>
+                    <button class="si" id="dsi-history" onclick="setDashSection('history')"><i
+                            class="ti ti-history"></i> Historial</button>
+                    <button class="si" id="dsi-reviews" onclick="setDashSection('reviews')"><i class="ti ti-star"></i>
+                        Reseñas</button>
+                    <button class="si" onclick="goPage('chat')"><i class="ti ti-message-2"></i> Mensajes <span
+                            class="sbadge" style="background:var(--acc);color:#fff">3</span></button>
+                    <div class="sbl">Finanzas</div>
+                    <button class="si" id="dsi-earnings" onclick="setDashSection('earnings')"><i class="ti ti-cash"></i>
+                        Ganancias</button>
+                    <button class="si" id="dsi-stats" onclick="setDashSection('stats')"><i class="ti ti-chart-line"></i>
+                        Estadísticas</button>
+                    <div class="sbl">Cuenta</div>
+                    <button class="si" id="dsi-profile" onclick="setDashSection('profile')"><i class="ti ti-user"></i>
+                        Mi Perfil</button>
+                    <button class="si" id="dsi-avail" onclick="setDashSection('avail')"><i class="ti ti-clock"></i>
+                        Disponibilidad</button>
+                    <button class="si" onclick="goPage('support')"><i class="ti ti-ticket"></i> Soporte</button>
+                    <div style="height:1px;background:var(--bdr);margin:10px 0"></div>
+                    <button class="si" onclick="logout()"><i class="ti ti-logout"></i> Cerrar sesión</button>
+                </div>
+                <div class="main" id="dash-main"></div>
+            </div>
+
+<div id="page-chat" class="split-page" style="min-height:calc(100vh - 56px)">
+                <div class="chl">
+                    <div class="chls"><input id="chat-search" type="text" placeholder="Buscar conversaciones..."
+                            oninput="filterConvs(this.value)"></div>
+                    <div class="chl-list" id="conv-list"></div>
+                    <div style="padding:11px;border-top:1px solid var(--bdr)">
+                        <button class="btn btn-p" style="width:100%;font-size:12px"
+                            onclick="openModal('modalNewChat')"><i class="ti ti-plus"></i> Nueva conversación</button>
+                    </div>
+                </div>
+                <div class="chm" id="chat-main">
+                    <div
+                        style="display:flex;align-items:center;justify-content:center;height:100%;color:var(--tx3);flex-direction:column;gap:12px">
+                        <i class="ti ti-message-2" style="font-size:44px"></i>
+                        <p>Selecciona una conversación o inicia una nueva</p>
+                    </div>
+                </div>
+            </div>
+
+<div id="page-notif" class="page">
+                <div class="main" style="max-width:680px;margin:0 auto">
+                    <div class="ph">
+                        <h2>Notificaciones</h2>
+                        <button class="btn btn-o btn-sm" onclick="markAllRead()"><i class="ti ti-check"></i> Marcar todo
+                            leído</button>
+                    </div>
+                    <div class="card" style="padding:0;overflow:hidden" id="notif-list"></div>
+                </div>
+            </div>
+
+<div id="page-auth" class="flex-page" style="min-height:calc(100vh - 56px)">
+                <div class="auth-wrap">
+                    <div class="auth-card">
+                        <div style="text-align:center;margin-bottom:28px">
+                            <div class="logo" style="justify-content:center;font-size:22px;margin-bottom:4px">
+                                <div class="logo-box"><i class="ti ti-tools"></i></div>VI<span>MAX</span>
+                            </div>
+                            <p style="color:var(--tx2);font-size:13px">Plataforma de mecánicos verificados</p>
+                        </div>
+                        <div class="tabs" id="auth-tabs">
+                            <button class="tab on" onclick="setAuthTab('login')">Iniciar sesión</button>
+                            <button class="tab" onclick="setAuthTab('register')">Registrarse</button>
+                        </div>
+                        <div id="auth-form-login">
+                            <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" id="li-email"
+                                    type="email" placeholder="tu@correo.com"></div>
+                            <div class="fg"><label class="fl">Contraseña</label><input class="fi" id="li-pass"
+                                    type="password" placeholder="••••••••"></div>
+                            <div style="text-align:right;margin-bottom:14px"><a href="#"
+                                    style="font-size:12px;color:var(--acc3)"
+                                    onclick="openModal('modalForgot')">¿Olvidaste tu contraseña?</a></div>
+                            <button class="btn btn-p" style="width:100%;padding:10px" onclick="doLogin()"><i
+                                    class="ti ti-login"></i> Iniciar sesión</button>
+                            <div class="divider">o prueba con</div>
+                            <div style="display:flex;flex-direction:column;gap:7px">
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('client')"><i class="ti ti-user"></i> Entrar como Cliente
+                                    (demo)</button>
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('mechanic')"><i class="ti ti-tools"></i> Entrar como Mecánico
+                                    (demo)</button>
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('admin')"><i class="ti ti-shield"></i> Entrar como Admin
+                                    (demo)</button>
+                                <button class="btn btn-o" style="justify-content:center"
+                                    onclick="quickLogin('support')"><i class="ti ti-headset"></i> Entrar como Soporte
+                                    (demo)</button>
+                            </div>
+                        </div>
+                        <div id="auth-form-register" style="display:none">
+                            <div class="tabs" id="reg-role-tabs" style="margin-bottom:14px">
+                                <button class="tab on" onclick="setRegRole('client')">Soy Cliente</button>
+                                <button class="tab" onclick="setRegRole('mechanic')">Soy Mecánico</button>
+                            </div>
+                            <div class="fr">
+                                <div class="fg"><label class="fl">Nombre</label><input class="fi" id="rg-fname"
+                                        placeholder="Tu nombre"></div>
+                                <div class="fg"><label class="fl">Apellido</label><input class="fi" id="rg-lname"
+                                        placeholder="Tu apellido"></div>
+                            </div>
+                            <div class="fg"><label class="fl">Correo</label><input class="fi" id="rg-email" type="email"
+                                    placeholder="tu@correo.com"></div>
+                            <div class="fg"><label class="fl">Contraseña</label><input class="fi" id="rg-pass"
+                                    type="password" placeholder="Mín. 8 caracteres"></div>
+                            <div class="fg"><label class="fl">Confirmar contraseña</label><input class="fi"
+                                    id="rg-pass2" type="password" placeholder="Repite tu contraseña"></div>
+                            <div id="mech-extra" style="display:none">
+                                <div class="fg"><label class="fl">Especialidad principal</label><select class="fi"
+                                        id="rg-spec">
+                                        <option>Motor</option>
+                                        <option>Frenos</option>
+                                        <option>Eléctrico</option>
+                                        <option>Transmisión</option>
+                                        <option>AC</option>
+                                        <option>Carrocería</option>
+                                        <option>Diagnóstico</option>
+                                    </select></div>
+                                <div class="fg"><label class="fl">Años de experiencia</label><input class="fi"
+                                        id="rg-exp" type="number" min="0" max="50" value="2"></div>
+                            </div>
+                            <button class="btn btn-p" style="width:100%;padding:10px;margin-top:4px"
+                                onclick="doRegister()"><i class="ti ti-user-plus"></i> Crear cuenta gratis</button>
+                            <p style="font-size:11px;color:var(--tx3);text-align:center;margin-top:10px">Al registrarte
+                                aceptas los <a href="#" style="color:var(--acc3)">Términos</a> y la <a href="#"
+                                    style="color:var(--acc3)">Privacidad</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+<div id="page-admin" class="split-page">
+                <div class="sidebar">
+                    <div style="padding:8px 6px 14px">
+                        <div style="font-size:11px;font-weight:700;color:var(--err)">⚡ PANEL ADMIN</div>
+                        <div style="font-size:11px;color:var(--tx3)" id="admin-role-lbl">Super Administrador</div>
+                    </div>
+                    <div class="sbl">Sistema</div>
+                    <button class="si on" id="asi-overview" onclick="setAdminSection('overview')"><i
+                            class="ti ti-dashboard"></i> Panel General</button>
+                    <button class="si" id="asi-users" onclick="setAdminSection('users')"><i class="ti ti-users"></i>
+                        Usuarios</button>
+                    <button class="si" id="asi-mechanics" onclick="setAdminSection('mechanics')"><i
+                            class="ti ti-tools"></i> Mecánicos</button>
+                    <button class="si" id="asi-admins" onclick="setAdminSection('admins')"><i class="ti ti-shield"></i>
+                        Administradores</button>
+                    <div class="sbl">Contenido</div>
+                    <button class="si" id="asi-pubs" onclick="setAdminSection('pubs')"><i class="ti ti-file-text"></i>
+                        Publicaciones</button>
+                    <button class="si" id="asi-reports" onclick="setAdminSection('reports')"><i class="ti ti-flag"></i>
+                        Reportes <span class="sbadge" style="background:var(--err);color:#fff">12</span></button>
+                    <div class="sbl">Seguridad</div>
+                    <button class="si" id="asi-security" onclick="setAdminSection('security')"><i
+                            class="ti ti-lock"></i> Seguridad</button>
+                    <button class="si" id="asi-audit" onclick="setAdminSection('audit')"><i class="ti ti-eye"></i>
+                        Auditoría</button>
+                    <div class="sbl">Análisis</div>
+                    <button class="si" id="asi-stats" onclick="setAdminSection('astats')"><i
+                            class="ti ti-chart-bar"></i> Estadísticas</button>
+                    <button class="si" id="asi-config" onclick="setAdminSection('config')"><i
+                            class="ti ti-settings"></i> Configuración</button>
+                    <div style="height:1px;background:var(--bdr);margin:10px 0"></div>
+                    <button class="si" onclick="logout()"><i class="ti ti-logout"></i> Cerrar sesión</button>
+                </div>
+                <div class="main" id="admin-main"></div>
+            </div>
+
+<div id="page-support" class="split-page">
+                <div class="sidebar">
+                    <div style="padding:8px 6px 14px">
+                        <div style="font-size:11px;font-weight:700;color:var(--acc3)">🎧 SOPORTE</div>
+                    </div>
+                    <div class="sbl">Tickets</div>
+                    <button class="si on" id="ssi-all" onclick="setSupportSection('all')"><i class="ti ti-ticket"></i>
+                        Todos <span class="sbadge" style="background:var(--acc);color:#fff"
+                            id="sup-all-badge">24</span></button>
+                    <button class="si" id="ssi-pending" onclick="setSupportSection('pending')"><i
+                            class="ti ti-clock"></i> Pendientes <span class="sbadge"
+                            style="background:var(--warn);color:#000">8</span></button>
+                    <button class="si" id="ssi-progress" onclick="setSupportSection('progress')"><i
+                            class="ti ti-refresh"></i> En Proceso <span class="sbadge"
+                            style="background:var(--acc);color:#fff">10</span></button>
+                    <button class="si" id="ssi-resolved" onclick="setSupportSection('resolved')"><i
+                            class="ti ti-check"></i> Resueltos</button>
+                    <div class="sbl">Herramientas</div>
+                    <button class="si" onclick="goPage('chat')"><i class="ti ti-message-2"></i> Chat con
+                        Usuarios</button>
+                    <button class="si" id="ssi-sreports" onclick="setSupportSection('sreports')"><i
+                            class="ti ti-flag"></i> Reportes <span class="sbadge"
+                            style="background:var(--err);color:#fff">12</span></button>
+                    <button class="si" id="ssi-mod" onclick="setSupportSection('mod')"><i class="ti ti-ban"></i>
+                        Moderación</button>
+                    <button class="si" id="ssi-actlog" onclick="setSupportSection('actlog')"><i
+                            class="ti ti-history"></i> Historial Acciones</button>
+                    <div style="height:1px;background:var(--bdr);margin:10px 0"></div>
+                    <button class="si" onclick="logout()"><i class="ti ti-logout"></i> Cerrar sesión</button>
+                </div>
+                <div class="main" id="support-main"></div>
+            </div>
+
+</main>
+            <div id="modal-root">
+<div id="modalRegister" class="overlay">
+                <div class="modal">
+                    <div class="mh">Crear cuenta VIMAX<button class="mclose" onclick="closeModal('modalRegister')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="tabs">
+                        <button class="tab on" onclick="setRegTab(this,'client')">Soy Cliente</button>
+                        <button class="tab" onclick="setRegTab(this,'mechanic')">Soy Mecánico</button>
+                    </div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Nombre</label><input class="fi" id="m-fname"
+                                placeholder="Tu nombre"></div>
+                        <div class="fg"><label class="fl">Apellido</label><input class="fi" id="m-lname"
+                                placeholder="Tu apellido"></div>
+                    </div>
+                    <div class="fg"><label class="fl">Correo</label><input class="fi" id="m-email" type="email"
+                            placeholder="tu@correo.com"></div>
+                    <div class="fg"><label class="fl">Contraseña</label><input class="fi" id="m-pass" type="password"
+                            placeholder="Mín. 8 caracteres"></div>
+                    <div id="m-mech-extra" style="display:none">
+                        <div class="fg"><label class="fl">Especialidad</label><select class="fi" id="m-spec">
+                                <option>Motor</option>
+                                <option>Frenos</option>
+                                <option>Eléctrico</option>
+                                <option>Transmisión</option>
+                                <option>AC</option>
+                            </select></div>
+                    </div>
+                    <input type="hidden" id="m-role" value="client">
+                    <button class="btn btn-p" style="width:100%;padding:10px;margin-top:6px"
+                        onclick="doRegisterModal()"><i class="ti ti-user-plus"></i> Crear cuenta gratis</button>
+                </div>
+            </div>
+
+<div id="modalExpress" class="overlay">
+                <div class="modal">
+                    <div class="mh"><span><i class="ti ti-bolt" style="color:var(--warn)"></i> Solicitud
+                            Express</span><button class="mclose" onclick="closeModal('modalExpress')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Tipo de servicio</label><select class="fi" id="ex-type">
+                            <option>Motor</option>
+                            <option>Frenos</option>
+                            <option>Eléctrico</option>
+                            <option>Transmisión</option>
+                            <option>AC</option>
+                            <option>Carrocería</option>
+                            <option>Diagnóstico</option>
+                            <option>Emergencia general</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Describe el problema</label><textarea class="fi" id="ex-desc"
+                            rows="3" placeholder="Describe el problema de tu vehículo..."></textarea></div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Marca del vehículo</label><input class="fi" id="ex-brand"
+                                placeholder="Toyota, Kia..."></div>
+                        <div class="fg"><label class="fl">Año</label><input class="fi" id="ex-year" type="number"
+                                placeholder="2019"></div>
+                    </div>
+                    <div class="fg"><label class="fl">Ubicación</label><input class="fi" id="ex-loc"
+                            placeholder="Tu dirección..." value="Av. Arce 2356, La Paz"></div>
+                    <div
+                        style="background:rgba(37,99,235,.08);border:1px solid rgba(37,99,235,.2);border-radius:8px;padding:10px;margin-bottom:14px;display:flex;gap:8px;font-size:13px;color:var(--acc3)">
+                        <i class="ti ti-bolt"></i> Se notificará a mecánicos cercanos de inmediato
+                    </div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="sendExpress()"><i
+                            class="ti ti-send"></i> Enviar solicitud express</button>
+                </div>
+            </div>
+
+<div id="modalTicket" class="overlay">
+                <div class="modal">
+                    <div class="mh">Nuevo Ticket de Soporte<button class="mclose" onclick="closeModal('modalTicket')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Categoría</label><select class="fi" id="tk-cat">
+                            <option>Incumplimiento de servicio</option>
+                            <option>Problema de pago</option>
+                            <option>Comportamiento inapropiado</option>
+                            <option>Error técnico</option>
+                            <option>Verificación</option>
+                            <option>Otro</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Prioridad</label><select class="fi" id="tk-pri">
+                            <option value="NORMAL">Normal</option>
+                            <option value="HIGH">Alta</option>
+                            <option value="URGENT">Urgente</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Título</label><input class="fi" id="tk-title"
+                            placeholder="Resume el problema brevemente..."></div>
+                    <div class="fg"><label class="fl">Descripción detallada</label><textarea class="fi" id="tk-desc"
+                            rows="4" placeholder="Describe el problema con todos los detalles..."></textarea></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="createTicket()"><i
+                            class="ti ti-ticket"></i> Crear ticket</button>
+                </div>
+            </div>
+
+<div id="modalReview" class="overlay">
+                <div class="modal">
+                    <div class="mh">Calificar Servicio<button class="mclose" onclick="closeModal('modalReview')"><i
+                                class="ti ti-x"></i></button></div>
+                    <input type="hidden" id="rev-mech-id">
+                    <input type="hidden" id="rev-booking-id">
+                    <div style="text-align:center;margin-bottom:18px">
+                        <p style="color:var(--tx2);margin-bottom:12px">¿Cómo calificarías el servicio?</p>
+                        <div id="star-picker" style="display:flex;gap:6px;justify-content:center">
+                            <span class="rstar" data-val="1" onclick="setStars(1)">★</span>
+                            <span class="rstar" data-val="2" onclick="setStars(2)">★</span>
+                            <span class="rstar" data-val="3" onclick="setStars(3)">★</span>
+                            <span class="rstar" data-val="4" onclick="setStars(4)">★</span>
+                            <span class="rstar" data-val="5" onclick="setStars(5)">★</span>
+                        </div>
+                        <p id="star-label" style="font-size:13px;color:var(--tx3);margin-top:8px">Selecciona una
+                            calificación</p>
+                    </div>
+                    <div class="fg"><label class="fl">Comentario (opcional)</label><textarea class="fi" id="rev-comment"
+                            rows="3" placeholder="Comparte tu experiencia..."></textarea></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="submitReview()"><i
+                            class="ti ti-star"></i> Enviar calificación</button>
+                </div>
+            </div>
+
+<div id="modalService" class="overlay">
+                <div class="modal">
+                    <div class="mh" id="modal-svc-title">Nuevo Servicio<button class="mclose"
+                            onclick="closeModal('modalService')"><i class="ti ti-x"></i></button></div>
+                    <input type="hidden" id="svc-edit-id">
+                    <div class="fg"><label class="fl">Nombre del servicio</label><input class="fi" id="svc-name"
+                            placeholder="Ej: Cambio de aceite y filtros"></div>
+                    <div class="fg"><label class="fl">Categoría</label><select class="fi" id="svc-cat">
+                            <option>Motor</option>
+                            <option>Frenos</option>
+                            <option>Eléctrico</option>
+                            <option>Transmisión</option>
+                            <option>AC</option>
+                            <option>Carrocería</option>
+                            <option>Diagnóstico</option>
+                            <option>Suspensión</option>
+                        </select></div>
+                    <div class="fg"><label class="fl">Descripción</label><textarea class="fi" id="svc-desc" rows="2"
+                            placeholder="Describe qué incluye el servicio..."></textarea></div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Precio (Bs.)</label><input class="fi" id="svc-price"
+                                type="number" placeholder="150"></div>
+                        <div class="fg"><label class="fl">Tiempo estimado</label><input class="fi" id="svc-time"
+                                placeholder="~30 min"></div>
+                    </div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="saveService()"><i
+                            class="ti ti-check"></i> Guardar servicio</button>
+                </div>
+            </div>
+
+<div id="modalNewAdmin" class="overlay">
+                <div class="modal">
+                    <div class="mh">Crear Administrador<button class="mclose" onclick="closeModal('modalNewAdmin')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Nombre completo</label><input class="fi" id="na-name"
+                            placeholder="Nombre del administrador"></div>
+                    <div class="fg"><label class="fl">Correo</label><input class="fi" id="na-email" type="email"
+                            placeholder="admin@vimax.bo"></div>
+                    <div class="fg"><label class="fl">Contraseña inicial</label><input class="fi" id="na-pass"
+                            type="password" placeholder="Contraseña temporal"></div>
+                    <div class="fg"><label class="fl">Tipo de acceso</label><select class="fi" id="na-role">
+                            <option value="admin">Administrador General</option>
+                            <option value="mod">Moderador de Contenido</option>
+                            <option value="support">Soporte Técnico</option>
+                            <option value="analyst">Analítica</option>
+                        </select></div>
+                    <div class="fg">
+                        <label class="fl">Permisos</label>
+                        <div
+                            style="background:var(--bg3);border-radius:8px;padding:12px;display:flex;flex-direction:column;gap:8px">
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-users" checked> Gestión de usuarios</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-mechs" checked> Gestión de mecánicos</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-pay"> Gestión de pagos</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-audit"> Acceso a auditoría</label>
+                            <label style="display:flex;align-items:center;gap:8px;font-size:13px;cursor:pointer"><input
+                                    type="checkbox" id="perm-suspend"> Suspensión de cuentas</label>
+                        </div>
+                    </div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="createAdmin()"><i
+                            class="ti ti-user-plus"></i> Crear administrador</button>
+                </div>
+            </div>
+
+<div id="modalNewChat" class="overlay">
+                <div class="modal">
+                    <div class="mh">Nueva conversación<button class="mclose" onclick="closeModal('modalNewChat')"><i
+                                class="ti ti-x"></i></button></div>
+                    <div class="fg"><label class="fl">Buscar usuario o mecánico</label><input class="fi" id="nc-search"
+                            placeholder="Nombre o correo..." oninput="searchUsersForChat(this.value)"></div>
+                    <div id="nc-results"
+                        style="display:flex;flex-direction:column;gap:7px;max-height:250px;overflow-y:auto"></div>
+                </div>
+            </div>
+
+<div id="modalForgot" class="overlay">
+                <div class="modal">
+                    <div class="mh">Recuperar contraseña<button class="mclose" onclick="closeModal('modalForgot')"><i
+                                class="ti ti-x"></i></button></div>
+                    <p style="color:var(--tx2);font-size:13px;margin-bottom:16px">Ingresa tu correo y te enviaremos
+                        instrucciones para restablecer tu contraseña.</p>
+                    <div class="fg"><label class="fl">Correo electrónico</label><input class="fi" id="fp-email"
+                            type="email" placeholder="tu@correo.com"></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="sendForgot()"><i
+                            class="ti ti-mail"></i> Enviar instrucciones</button>
+                </div>
+            </div>
+
+<div id="modalBook" class="overlay">
+                <div class="modal">
+                    <div class="mh" id="book-title">Contratar Servicio<button class="mclose"
+                            onclick="closeModal('modalBook')"><i class="ti ti-x"></i></button></div>
+                    <input type="hidden" id="book-mech-id">
+                    <input type="hidden" id="book-svc-id">
+                    <div class="fg"><label class="fl">Descripción del problema</label><textarea class="fi"
+                            id="book-desc" rows="2" placeholder="Describe qué necesitas..."></textarea></div>
+                    <div class="fr">
+                        <div class="fg"><label class="fl">Marca del vehículo</label><input class="fi" id="book-brand"
+                                placeholder="Toyota"></div>
+                        <div class="fg"><label class="fl">Año</label><input class="fi" id="book-year" type="number"
+                                placeholder="2019"></div>
+                    </div>
+                    <div class="fg"><label class="fl">Ubicación</label><input class="fi" id="book-loc"
+                            placeholder="Tu dirección..." value="La Paz, Bolivia"></div>
+                    <div class="fg"><label class="fl">Fecha y hora preferida</label><input class="fi" id="book-date"
+                            type="datetime-local"></div>
+                    <button class="btn btn-p" style="width:100%;padding:10px" onclick="submitBooking()"><i
+                            class="ti ti-check"></i> Confirmar solicitud</button>
+                </div>
+            </div>
+
+<div id="modalTicketDetail" class="overlay">
+                <div class="modal" style="max-width:560px">
+                    <div class="mh"><span id="td-title">Detalle del Ticket</span><button class="mclose"
+                            onclick="closeModal('modalTicketDetail')"><i class="ti ti-x"></i></button></div>
+                    <div id="td-content"></div>
+                </div>
+            </div>
+
+<div id="modalUserDetail" class="overlay">
+                <div class="modal" style="max-width:520px">
+                    <div class="mh"><span id="ud-title">Detalle de Usuario</span><button class="mclose"
+                            onclick="closeModal('modalUserDetail')"><i class="ti ti-x"></i></button></div>
+                    <div id="ud-content"></div>
+                </div>
+            </div>
+
+</div>
+
+            <!-- ═══════════════════ HOME PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ SEARCH PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ PROFILE PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ MY PROFILE PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ DASHBOARD ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ CHAT PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ NOTIFICATIONS PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ AUTH PAGE ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ ADMIN PANEL ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ SUPPORT PANEL ═══════════════════ -->
+            <!-- Página cargada desde /pages -->
+
+            <!-- ═══════════════════ MODALS ═══════════════════ -->
+
+            <!-- Register -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Express Request -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Ticket Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Review Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Service Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- New Admin Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- New Chat Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Forgot Password -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Booking Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- Ticket Detail Modal -->
+            <!-- Modal cargado desde /pages/modals -->
+
+            <!-- User Detail Modal (Admin) -->
+            <!-- Modal cargado desde /pages/modals -->
+
+        </div><!-- #app -->
+
+        <!-- TOAST -->
+        <div id="toast"></div>
+
+                <script src="js/modules/data.js"></script>
+        <script src="js/modules/core.js"></script>
+        <script src="js/modules/auth.js"></script>
+        <script src="js/modules/map-search.js"></script>
+        <script src="js/modules/profiles-bookings.js"></script>
+        <script src="js/modules/reviews.js"></script>
+        <script src="js/modules/dashboard.js"></script>
+        <script src="js/modules/chat.js"></script>
+        <script src="js/modules/notifications-tickets.js"></script>
+        <script src="js/modules/support.js"></script>
+        <script src="js/modules/admin.js"></script>
+    </body>
+
+    </html>
+
+
+
